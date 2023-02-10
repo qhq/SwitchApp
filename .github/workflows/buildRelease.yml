@@ -1,30 +1,47 @@
 name: BuildRelease
 
+# 指定此工作流的触发器
 on:
   workflow_dispatch:
   push:
     branches:
       - master
-
+    # 匹配特定标签 (refs/tags)
+    tags:
+      - 'v*' # 推送事件匹配 v*, 例如 v1.0，v20.15.10 等来触发工作流
+      
+# 需要运行的作业组合
 jobs:
-  build:
+  # 任务：创建 release 版本
+  create-release:
     name: SwitchApp
     runs-on: ubuntu-latest
+    outputs:
+      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.id }}
     
     steps:
     - uses: actions/checkout@v2
     
+    # 查询版本号（tag）
+    - name: Query version number
+      id: get_version
+      shell: bash
+      run: |
+        echo "using version tag ${GITHUB_REF:10}"
+        echo "version=${GITHUB_REF:10}" >> $GITHUB_OUTPUT
+          
     - name: 当前日期
       id: date
       run: |
-        echo "date=$(date +'%YY%mm%dd')" >> $GITHUB_OUTPUT
+        echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
         
     - name: 发布
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: ${{ steps.date.outputs.date }}
+        # tag: ${{ steps.date.outputs.date }}
+        tag: '${{ steps.get_version.outputs.VERSION }}'
         prerelease: false
         artifacts: "APPS/*.zip"
 
