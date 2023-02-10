@@ -1,0 +1,23 @@
+name: BuildRelease
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: SwitchApp
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: 发布
+      uses: ncipollo/release-action@v1
+      with:
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        artifacts: "APPS/*.zip"
+
