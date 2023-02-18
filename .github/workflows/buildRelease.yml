@@ -28,7 +28,9 @@ jobs:
 
     - name: 打包
       run: |
+        ls
         for file in /Files/*
+        echo "$file"
         do
         if [ -d "$file" ]
         then
