@@ -33,8 +33,8 @@ jobs:
         do
         if [ -d "$file" ]
         then
-          # echo "$file is directory"
-          zip -q -r $file.zip $file/*
+          echo "Files/$file/ is directory"
+          zip -q -r $file.zip Files/$file/*
         elif [ -f "$file" ]
         then
           echo "$file is file"
