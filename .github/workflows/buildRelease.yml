@@ -54,5 +54,5 @@ jobs:
         allowUpdates: true
         tag: ${{ steps.date.outputs.date }}
         prerelease: false
-        artifacts: "/Output*.zip"
+        artifacts: "Output/*.zip"
 
