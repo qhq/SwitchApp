@@ -30,7 +30,7 @@ jobs:
       run: |
         ls
         for file in /Files/*
-        echo "$file"
+          echo "$file"
         do
         if [ -d "$file" ]
         then
