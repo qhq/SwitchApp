@@ -40,7 +40,7 @@ jobs:
           echo "$file is file"
         fi
         done
-        ls Files/
+        ls
    
     - name: 发布
       uses: ncipollo/release-action@v1
@@ -49,5 +49,5 @@ jobs:
         allowUpdates: true
         tag: ${{ steps.date.outputs.date }}
         prerelease: false
-        artifacts: "Files/*.zip"
+        artifacts: "*.zip"
 
