@@ -35,6 +35,9 @@ jobs:
         then
           echo "$file is directory"
           zip -qq -r $file.zip $file
+        elif [ -f "$file" ]
+        then
+          echo "$file is file"
         fi
         done
    
