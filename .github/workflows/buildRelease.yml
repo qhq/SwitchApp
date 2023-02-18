@@ -45,7 +45,7 @@ jobs:
           echo "$file 是文件"
         fi
         done
-        mv /Files/*.zip /Output
+        mv Files/*.zip /Output
    
     - name: 发布
       uses: ncipollo/release-action@v1
