@@ -25,7 +25,18 @@ jobs:
       run: |
         echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
-        
+
+    - name: 打包
+      run: |
+        for file in /Files/*
+        do
+        if [ -d "$file" ]
+        then
+          echo "$file is directory"
+          zip -qq -r $file.zip $file
+        fi
+        done
+   
     - name: 发布
       uses: ncipollo/release-action@v1
       with:
@@ -33,5 +44,5 @@ jobs:
         allowUpdates: true
         tag: ${{ steps.date.outputs.date }}
         prerelease: false
-        artifacts: "APPS/*.zip"
+        artifacts: "Files/*.zip"
 
