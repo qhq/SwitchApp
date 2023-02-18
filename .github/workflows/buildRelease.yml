@@ -29,8 +29,7 @@ jobs:
     - name: 打包
       run: |
         ls
-        for file in /Files/*
-          echo "$file"
+        for file in Files/*
         do
         if [ -d "$file" ]
         then
