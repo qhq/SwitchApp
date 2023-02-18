@@ -34,7 +34,7 @@ jobs:
         if [ -d "$file" ]
         then
           # echo "$file is directory"
-          zip -qq -r $file.zip $file/*
+          zip -q -r $file.zip $file/*
         elif [ -f "$file" ]
         then
           echo "$file is file"
