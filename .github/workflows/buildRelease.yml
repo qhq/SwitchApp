@@ -33,14 +33,14 @@ jobs:
         do
         if [ -d "$file" ]
         then
-          echo "$file is directory"
-          zip -q -r $file.zip $file/*
+          # echo "$file is directory"
+          zip -q -r ${file##*/}.zip $file/*
         elif [ -f "$file" ]
         then
           echo "$file is file"
         fi
         done
-        ls
+        ls Files/
    
     - name: 发布
       uses: ncipollo/release-action@v1
