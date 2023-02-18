@@ -35,7 +35,8 @@ jobs:
         then
           # echo "$file is directory"
           cd $file
-          zip -qr ../${file##*/}.zip *
+          zip -qr ../../${file##*/}.zip *
+          cd ../
         elif [ -f "$file" ]
         then
           echo "$file is file"
