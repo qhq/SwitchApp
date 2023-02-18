@@ -29,7 +29,7 @@ jobs:
     - name: 打包
       run: |
         # ls
-        mkdir -p Output
+        mkdir -p Output/
         for file in Files/*
         do
         if [ -d "$file" ]
