@@ -28,7 +28,7 @@ jobs:
 
     - name: 打包
       run: |
-        find /Files -type f -iname .delme -delete
+        find Files -type f -iname .delme -delete
         for file in Files/*
         do
         if [ -d "$file" ]
