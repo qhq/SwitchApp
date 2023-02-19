@@ -28,7 +28,9 @@ jobs:
 
     - name: 打包
       run: |
+        # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
+        # 循环压缩Files目录下各app目录
         for file in Files/*
         do
         if [ -d "$file" ]
@@ -42,6 +44,7 @@ jobs:
           echo "$file 是文件"
         fi
         done
+        # 将压缩文件移动到/Output目录
         mkdir -p Output && mv Files/*.zip Output
    
     - name: 发布
