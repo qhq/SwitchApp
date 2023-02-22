@@ -40,7 +40,7 @@ jobs:
           fn=${file##*/}
           echo "$fn"
           #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
-          awk '{FS="|"}; {if ($2=$fn) {print $3}}' README.md
+          awk -F "|" '$2=$fn{print $2,$3}' README.md
           cd $file
           zip -qr ../${file##*/}.zip *
           cd ../../
