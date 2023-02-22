@@ -31,16 +31,15 @@ jobs:
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
         # awk -F "|" '$2~"DBI"{print $2,$3}' README.md
-        # 循环压缩Files目录下各app目录
+        # 循环检查Files目录下各app版本，有更新打包发布
         for file in Files/*
         do
         if [ -d "$file" ]
         then
           # echo "$file 是目录"
           fn=${file##*/}
-          # echo "$fn"
           v_old=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
-          v_new=`ls $file -a | grep -i -E 'v_.*' | awk -F "_" '{print $2}'`
+          v_new=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
           if version_gt $v_new $v_old; then
             cd $file
@@ -63,7 +62,7 @@ jobs:
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
-        tag: 20230222 # ${{ steps.date.outputs.date }}
+        tag: custom # ${{ steps.date.outputs.date }}
         prerelease: false
         artifacts: "Output/*.zip"
 
