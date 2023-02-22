@@ -57,6 +57,8 @@ jobs:
         # 将压缩文件移动到/Output目录
         if ! ls Files/*.zip >/dev/null 2>&1; then
           mkdir -p Output && mv Files/*.zip Output
+        else
+          echo "无任何文件需要更新"
         fi
    
     - name: 发布
