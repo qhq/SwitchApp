@@ -26,7 +26,7 @@ jobs:
         echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
 
-    - name: 打包
+    - name: 整理文件
       run: |
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
@@ -61,7 +61,7 @@ jobs:
           echo "无任何文件需要更新"
         fi
    
-    - name: 发布
+    - name: 发布更新
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
@@ -70,15 +70,15 @@ jobs:
         prerelease: false
         artifacts: "Output/*.zip"
         
-    - name: Setup Node.js
+    - name: 安装 Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '14'
 
-    - name: Install dependencies
+    - name: 安装 依赖
       run: npm install
 
-    - name: Update README
+    - name: 更新 README
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
