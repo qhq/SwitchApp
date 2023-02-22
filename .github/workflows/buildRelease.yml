@@ -23,7 +23,7 @@ jobs:
     - name: 当前日期
       id: date
       run: |
-        echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        echo "date=$(date +'%Y-%m-%d %H:%M')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
 
     - name: 整理文件
@@ -72,6 +72,8 @@ jobs:
         
     - name: commit to rep
       run: |
+        git config --global user.name "qhq[bot]"
+        git config --global user.email "qhqcz@qq.com"
         git add README.md
         git commit -m "Update README.md"
         git push
