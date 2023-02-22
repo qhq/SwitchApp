@@ -52,7 +52,7 @@ jobs:
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
-        tag: ${{ steps.date.outputs.date }}
+        tag: 更新 # ${{ steps.date.outputs.date }}
         prerelease: false
         artifacts: "Output/*.zip"
 
