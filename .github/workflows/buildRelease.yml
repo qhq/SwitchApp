@@ -38,7 +38,8 @@ jobs:
           # echo "$file 是目录"
           fn=${file##*/}
           echo "$fn"
-          cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
+          #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
+          grep -i '$fn' README.md
           cd $file
           zip -qr ../${file##*/}.zip *
           cd ../../
