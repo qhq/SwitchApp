@@ -43,7 +43,7 @@ jobs:
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
           if version_gt $v_new $v_old; then
             echo "$fn 版本更新：$v_old ⬆ $v_new"
-            perl -pi -e "s/$file\|$v_old/$file\|$v_new/g" README.md
+            perl -pi -e "s/$fn\|$v_old/$fn\|$v_new/g" README.md
             cd $file
             zip -qr ../${file##*/}.zip *
             cd ../../
