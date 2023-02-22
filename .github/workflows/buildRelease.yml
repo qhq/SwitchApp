@@ -36,7 +36,9 @@ jobs:
         if [ -d "$file" ]
         then
           # echo "$file 是目录"
-          cat README.md | sed "s/|${file##*/}|(.*)|.*|/&/g"
+          fn = ${file##*/}
+          echo $fn
+          cat README.md | sed "s/|$fn|(.*)|.*|/&/g"
           cd $file
           zip -qr ../${file##*/}.zip *
           cd ../../
