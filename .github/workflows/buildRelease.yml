@@ -53,6 +53,7 @@ jobs:
           echo "$file 是文件"
         fi
         done
+        cat README.md
         # 将压缩文件移动到/Output目录
         if ! ls Files/*.zip >/dev/null 2>&1; then
           mkdir -p Output && mv Files/*.zip Output
