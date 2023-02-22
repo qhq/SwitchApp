@@ -27,6 +27,7 @@ jobs:
         # ${{ steps.date.outputs.date }}
 
     - name: 整理文件
+      id: check
       run: |
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
@@ -57,12 +58,15 @@ jobs:
         # 将压缩文件移动到/Output目录
         if ! ls /Files/*.zip >/dev/null 2>&1; then
           mkdir -p Output && mv Files/*.zip Output
+          echo "check=true" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
+          echo "check=false" >> $GITHUB_OUTPUT
         fi
    
     - name: 发布更新
       uses: ncipollo/release-action@v1
+      if: ${{ steps.check.outputs.check }} == 'true'
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
@@ -70,7 +74,8 @@ jobs:
         prerelease: false
         artifacts: "Output/*.zip"
         
-    - name: commit to rep
+    - name: 更新 README.md
+      if: ${{ steps.check.outputs.check }} == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
