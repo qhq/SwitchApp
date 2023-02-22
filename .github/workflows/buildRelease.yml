@@ -30,7 +30,7 @@ jobs:
       run: |
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
-        awk -F "|" ' {print $2}' README.md
+        # awk -F "|" ' {print $2}' README.md
         # 循环压缩Files目录下各app目录
         for file in Files/*
         do
@@ -40,7 +40,7 @@ jobs:
           fn=${file##*/}
           echo "$fn"
           #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
-          # awk '{FS="|"}; {if ($1=$fn) {print}}' README.md
+          awk '{FS="|"}; {if ($2=$fn) {print $3}}' README.md
           cd $file
           zip -qr ../${file##*/}.zip *
           cd ../../
