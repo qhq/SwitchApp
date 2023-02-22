@@ -38,12 +38,16 @@ jobs:
         then
           # echo "$file 是目录"
           fn=${file##*/}
-          echo "$fn"
-          #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
-          awk -F "|" '$2=/$fn/{print $2,$3}' README.md
-          cd $file
-          zip -qr ../${file##*/}.zip *
-          cd ../../
+          # echo "$fn"
+          v_old=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
+          v_new=`ls /home -a | grep -i -E '\.version_.*' | awk -F "_" '{print $2}'`
+          function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
+          if version_gt $v_new $v_old; then
+            echo "$fn 版本更新：$v_old > $v_new"
+            cd $file
+            zip -qr ../${file##*/}.zip *
+            cd ../../
+          fi
         elif [ -f "$file" ]
         then
           echo "$file 是文件"
