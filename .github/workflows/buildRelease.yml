@@ -23,12 +23,12 @@ jobs:
     - name: 修正时区
       run: |
         sudo rm /etc/localtime
-        sudo ln -s /usr/share/zoneinfo/Asia/BeiJing /etc/localtime
+        sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
       
     - name: 当前日期
       id: date
       run: |
-        echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+        echo "date=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
 
     - name: 整理文件
