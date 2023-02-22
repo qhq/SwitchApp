@@ -1,16 +1,12 @@
 # SwitchApp
-DBI.zip
 
-EdiZon.zip
-
-emuiibo.zip
-
-nx-ovlloader.zip
-
-nyx.zip
-
-ovl-sysmodules.zip
-
-Status-Monitor-Overlay.zip
-
-Tesla-Menu.zip
+|模块|版本|更新|
+|:-|:-|:-|
+|DBI||
+|EdiZon||
+|emuiibo||
+|nx-ovlloader||
+|nyx||
+|ovl-sysmodules||
+|Status-Monitor-Overlay||
+|Tesla-Menu||
