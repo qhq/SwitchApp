@@ -38,7 +38,7 @@ jobs:
         then
           # echo "$file 是目录"
           fn=${file##*/}
-          echo "$fn"
+          # echo "$fn"
           #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
           awk -F "|" '$2=$fn{print $2,$3}' README.md
           cd $file
