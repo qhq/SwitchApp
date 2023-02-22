@@ -39,7 +39,7 @@ jobs:
           fn=${file##*/}
           echo "$fn"
           #cat README.md | sed "s/\|DBI\|(.*)\|.*\|/&/g"
-          grep -i '$fn' README.md
+          sed "s/\|$fn\|(.*)\|.*\|/&/g" README.md
           cd $file
           zip -qr ../${file##*/}.zip *
           cd ../../
