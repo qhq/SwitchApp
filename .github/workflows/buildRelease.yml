@@ -51,6 +51,7 @@ jobs:
             echo "$fn 版本更新：$v_old ⬆ $v_new"
             perl -pi -e "s/$fn\|$v_old\|.*\|/$fn\|$v_new\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
+            find . -name "version_*" -exec rm -f {} \;
             zip -qr ../${file##*/}.zip *
             cd ../../
           fi
