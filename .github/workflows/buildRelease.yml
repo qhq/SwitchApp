@@ -37,9 +37,9 @@ jobs:
         then
           # echo "$file 是目录"
           cat README.md | sed "s/|${file##*/}|(.*)|.*|/&/g"
-          #cd $file
-          #zip -qr ../${file##*/}.zip *
-          #cd ../../
+          cd $file
+          zip -qr ../${file##*/}.zip *
+          cd ../../
         elif [ -f "$file" ]
         then
           echo "$file 是文件"
