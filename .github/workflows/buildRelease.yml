@@ -39,8 +39,9 @@ jobs:
           # echo "$file 是目录"
           fn=${file##*/}
           # echo "$fn"
+          echo "$file"
           v_old=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
-          v_new=`ls $file -a | grep -i -E '\.version_.*' | awk -F "_" '{print $2}'`
+          v_new=`ls '"$file"' -a | grep -i -E '\.version_.*' | awk -F "_" '{print $2}'`
           echo "$fn\r新版：$v_new\r旧版：$v_old"
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
           if version_gt $v_new $v_old; then
