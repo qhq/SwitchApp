@@ -36,9 +36,10 @@ jobs:
         if [ -d "$file" ]
         then
           # echo "$file 是目录"
-          cd $file
-          zip -qr ../${file##*/}.zip *
-          cd ../../
+          cat README.md | sed "s/\|${file##*/}\|(.*)\|.*\|/\1/g"
+          #cd $file
+          #zip -qr ../${file##*/}.zip *
+          #cd ../../
         elif [ -f "$file" ]
         then
           echo "$file 是文件"
