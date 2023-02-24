@@ -76,8 +76,8 @@ jobs:
         echo ${{ steps.check.outputs.check }} == true
         
     - name: 发布更新
+      if: steps.check.outputs.check == 'true'
       uses: ncipollo/release-action@v1
-      if: ${{ steps.check.outputs.check }} == 'true'
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
@@ -87,7 +87,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: ${{ steps.check.outputs.check }} == 'true'
+      if: steps.check.outputs.check == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
