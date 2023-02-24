@@ -64,12 +64,12 @@ jobs:
         # 将压缩文件移动到/Output目录
         if ! ls /Files/*.zip >/dev/null 2>&1; then
           mkdir -p Output && mv Files/*.zip Output
-          echo "check=true" >> $GITHUB_OUTPUT
+          echo "check='true'" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
-          echo "check=false" >> $GITHUB_OUTPUT
+          echo "check='false'" >> $GITHUB_OUTPUT
         fi
-   
+        echo ${{ steps.check.outputs.check }}
     - name: 发布更新
       uses: ncipollo/release-action@v1
       if: ${{ steps.check.outputs.check }} == 'true'
