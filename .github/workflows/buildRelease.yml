@@ -64,11 +64,11 @@ jobs:
         # 将压缩文件移动到/Output目录
         if [ -e /Files/*.zip ]; then
           mkdir -p Output && mv Files/*.zip Output
-          echo "check=true" >> $GITHUB_OUTPUT
+          echo "check='true'" >> $GITHUB_OUTPUT
           echo "true"
         else
           echo "无任何文件需要更新"
-          echo "check=false" >> $GITHUB_OUTPUT
+          echo "check='false'" >> $GITHUB_OUTPUT
         fi
     - name: 调试
       run: |
@@ -77,7 +77,7 @@ jobs:
         
     - name: 发布更新
       uses: ncipollo/release-action@v1
-      if: ${{ steps.check.outputs.check }} == "true"
+      if: ${{ steps.check.outputs.check }} == 'true'
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
@@ -87,7 +87,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: ${{ steps.check.outputs.check }} == "true"
+      if: ${{ steps.check.outputs.check }} == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
