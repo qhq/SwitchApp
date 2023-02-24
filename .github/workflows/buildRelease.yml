@@ -70,6 +70,9 @@ jobs:
           echo "无任何文件需要更新"
           echo "check=false" >> $GITHUB_OUTPUT
         fi
+    - name: 调试
+      run: |
+        echo ${{ steps.check.outputs.check }}
         
     - name: 发布更新
       uses: ncipollo/release-action@v1
