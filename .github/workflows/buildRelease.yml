@@ -65,15 +65,14 @@ jobs:
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "文件已更新"
-          echo "check='true'"
+          echo "check='true'" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
-          echo "check='false'"
+          echo "check='false'" >> $GITHUB_OUTPUT
         fi
-        echo "check=$check" >> $GITHUB_OUTPUT
 
     - name: 发布更新
-      if: steps.zipFiles.outputs.check == 'true'
+      if: ${{ steps.zipFiles.outputs.check }} == 'true'
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
