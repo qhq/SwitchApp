@@ -32,7 +32,7 @@ jobs:
         # ${{ steps.date.outputs.date }}
 
     - name: 整理文件
-      id: check
+      id: zipFiles
       run: |
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
@@ -65,14 +65,14 @@ jobs:
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "文件已更新"
-          echo "check='true'" >> $GITHUB_ENV
+          echo "check='true'" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
-          echo "check='false'" >> $GITHUB_ENV
+          echo "check='false'" >> $GITHUB_OUTPUT
         fi
         
     - name: 发布更新
-      if: env.check == 'true'
+      if: steps.zipFiles.outputs.check == 'true'
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
@@ -83,7 +83,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: env.check == 'true'
+      if: steps.zipFiles.outputs.check == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
