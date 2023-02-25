@@ -72,12 +72,11 @@ jobs:
         fi
         if [ -d "Files" ]
         then
-            if [ -f "/Files/*.zip" ]
+            if [ -n "$(find Files -name '*.zip')" ]
             then
                 echo "Files子目录下包含zip文件"
             else
                 echo "Files子目录下不包含zip文件"
-                ls -l Files
             fi
         fi
     - name: 发布更新
