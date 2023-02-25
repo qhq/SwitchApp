@@ -1,0 +1,21 @@
+{
+    "PluginName": "ReverseNx-RT",
+    "SaltySDNotRunningGuiTestCustomDrawerText": "SaltyNX is not working!",
+    "NoReverseNXPlugGuiTestCustomDrawerText": "Can't detect ReverseNX-RT plugin!",
+    "CheckGameClosedGuiTestCustomDrawerText": "Game was closed! Overlay disabled!\nExit from overlay and run game first!",
+    "CheckNoGameRunningGuiTestCustomDrawerText": "Game is not running! Overlay disabled!\nExit from overlay and run game first!",
+    "GameRunningGuiTestCustomDrawerText": "Game is running.",
+    "PlugNotRunningGuiTestCustomDrawerText": "ReverseNX-RT is not running!",
+    "PlugRunningGuiTestCustomDrawerText": "ReverseNX-RT plugin is running.",
+    "GameNotSupportGuiTestCustomDrawerText": "Game doesn't support changing modes!",
+    "WrongMagicNumberGuiTestCustomDrawerText": "WRONG MAGIC!",
+    "ChangeSystemControlGuiTestListItemText": "Change system control",
+    "ChangeModeGuiTestListItemText": "Change mode",
+    "ActiveOrDeactivePlugGuiTestListItemText": "(De)activate plugin",
+    "UpdateDockModeGuiTestListItemText": "Mode: Docked",
+    "UpdateHandleModeGuiTestListItemText": "Mode: Handheld",
+    "UpdateSystemControlGuiTestListItemText": "Controlled by system: Yes",
+    "UpdateNotSystemControlGuiTestListItemText": "Controlled by system: No",
+    "UpdatePluginActivedGuiTestListItemText": "ReverseNX-RT plugin is activated.",
+    "UpdatePluginDeactivedGuiTestListItemText": "ReverseNX-RT plugin is deactivated."
+}

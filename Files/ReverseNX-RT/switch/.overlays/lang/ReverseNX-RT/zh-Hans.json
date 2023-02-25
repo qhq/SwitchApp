@@ -1,0 +1,21 @@
+{
+    "PluginName": "底座模式插件",
+    "SaltySDNotRunningGuiTestCustomDrawerText": "SaltyNX没有运行！",
+    "NoReverseNXPlugGuiTestCustomDrawerText": "没有检测到ReverseNX-RT插件！",
+    "CheckGameClosedGuiTestCustomDrawerText": "游戏已关闭！Overlay插件禁用！\n退出Overlay插件，然后运行游戏先！",
+    "CheckNoGameRunningGuiTestCustomDrawerText": "游戏没有运行！Overlay插件禁用！\n退出Overlay插件，然后运行游戏先！",
+    "GameRunningGuiTestCustomDrawerText": "游戏正在运行。",
+    "PlugNotRunningGuiTestCustomDrawerText": "ReverseNX-RT插件没有运行！",
+    "PlugRunningGuiTestCustomDrawerText": "ReverseNX-RT插件正在运行。",
+    "GameNotSupportGuiTestCustomDrawerText": "游戏不支持更改模式！",
+    "WrongMagicNumberGuiTestCustomDrawerText": "错误的魔法数！",
+    "ChangeSystemControlGuiTestListItemText": "更改系统控制",
+    "ChangeModeGuiTestListItemText": "更改模式",
+    "ActiveOrDeactivePlugGuiTestListItemText": "(解除)激活插件",
+    "UpdateDockModeGuiTestListItemText": "模式：底座",
+    "UpdateHandleModeGuiTestListItemText": "模式：掌机",
+    "UpdateSystemControlGuiTestListItemText": "由系统控制：是",
+    "UpdateNotSystemControlGuiTestListItemText": "由系统控制：否",
+    "UpdatePluginActivedGuiTestListItemText": "ReverseNX-RT插件已激活。",
+    "UpdatePluginDeactivedGuiTestListItemText": "ReverseNX-RT插件已停用。"
+}
