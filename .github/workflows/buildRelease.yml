@@ -65,10 +65,10 @@ jobs:
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "文件已更新"
-          echo "check='true'" >> $GITHUB_OUTPUT
+          echo "check=A" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
-          echo "check='false'" >> $GITHUB_OUTPUT
+          echo "check=B" >> $GITHUB_OUTPUT
         fi
 
     - name: 测试
@@ -76,12 +76,12 @@ jobs:
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试
-      if: ${{ steps.zipFiles.outputs.check }} == true
+      if: ${{ steps.zipFiles.outputs.check }} == A
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试
-      if: steps.zipFiles.outputs.check == true
+      if: ${{ steps.zipFiles.outputs.check }} == B
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
     
