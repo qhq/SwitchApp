@@ -72,7 +72,7 @@ jobs:
         fi
         
     - name: 发布更新
-      if: steps.check.outputs.check == 'true'
+      if: env.check == 'true'
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
@@ -83,7 +83,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: steps.check.outputs.check == 'true'
+      if: env.check == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
