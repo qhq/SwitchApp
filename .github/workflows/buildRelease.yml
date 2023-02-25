@@ -76,22 +76,22 @@ jobs:
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试2
-      if: ${{ steps.zipFiles.outputs.check }} == A
+      if: ${{ steps.zipFiles.outputs.check }} == 'A'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试3
-      if: ${{ steps.zipFiles.outputs.check }} == B
+      if: ${{ steps.zipFiles.outputs.check }} == 'B'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试4
-      if: steps.zipFiles.outputs.check == A
+      if: steps.zipFiles.outputs.check == 'A'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试5
-      if: steps.zipFiles.outputs.check == B
+      if: steps.zipFiles.outputs.check == 'B'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
     
