@@ -60,41 +60,16 @@ jobs:
           echo "$file 是文件"
         fi
         done
-        cat README.md
         # 将压缩文件移动到/Output目录
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
-          echo "文件已更新"
           echo "check=true" >> $GITHUB_OUTPUT
+          cat README.md
         else
           echo "无任何文件需要更新"
           echo "check=false" >> $GITHUB_OUTPUT
         fi
 
-    - name: 测试1
-      run: |
-        echo ${{ steps.zipFiles.outputs.check }}
-
-    - name: 测试2
-      if: ${{ steps.zipFiles.outputs.check }} == 'true'
-      run: |
-        echo ${{ steps.zipFiles.outputs.check }}
-
-    - name: 测试3
-      if: ${{ steps.zipFiles.outputs.check }} == 'false'
-      run: |
-        echo ${{ steps.zipFiles.outputs.check }}
-
-    - name: 测试4
-      if: steps.zipFiles.outputs.check == 'true'
-      run: |
-        echo ${{ steps.zipFiles.outputs.check }}
-
-    - name: 测试5
-      if: steps.zipFiles.outputs.check == 'false'
-      run: |
-        echo ${{ steps.zipFiles.outputs.check }}
-    
     - name: 发布更新
       if: steps.zipFiles.outputs.check == 'true'
       uses: ncipollo/release-action@v1
