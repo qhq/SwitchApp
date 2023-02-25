@@ -65,10 +65,10 @@ jobs:
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "文件已更新"
-          echo "check=A" >> $GITHUB_OUTPUT
+          echo "check=true" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
-          echo "check=B" >> $GITHUB_OUTPUT
+          echo "check=false" >> $GITHUB_OUTPUT
         fi
 
     - name: 测试1
@@ -76,27 +76,27 @@ jobs:
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试2
-      if: ${{ steps.zipFiles.outputs.check }} == 'A'
+      if: ${{ steps.zipFiles.outputs.check }} == 'true'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试3
-      if: ${{ steps.zipFiles.outputs.check }} == 'B'
+      if: ${{ steps.zipFiles.outputs.check }} == 'false'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试4
-      if: steps.zipFiles.outputs.check == 'A'
+      if: steps.zipFiles.outputs.check == 'true'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
 
     - name: 测试5
-      if: steps.zipFiles.outputs.check == 'B'
+      if: steps.zipFiles.outputs.check == 'false'
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
     
     - name: 发布更新
-      if: ${{ steps.zipFiles.outputs.check }} == true
+      if: steps.zipFiles.outputs.check == 'true'
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
@@ -107,7 +107,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: ${{ steps.zipFiles.outputs.check }} == true
+      if: steps.zipFiles.outputs.check == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
