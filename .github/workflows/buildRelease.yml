@@ -62,23 +62,14 @@ jobs:
         done
         cat README.md
         # 将压缩文件移动到/Output目录
-        ls Files/*.zip
-        if [ -f "Files/*.zip" ]; then
+        if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "check='true'" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
           echo "check='false'" >> $GITHUB_OUTPUT
         fi
-        if [ -d "Files" ]
-        then
-            if [ -n "$(find Files -name '*.zip')" ]
-            then
-                echo "Files子目录下包含zip文件"
-            else
-                echo "Files子目录下不包含zip文件"
-            fi
-        fi
+        
     - name: 发布更新
       if: steps.check.outputs.check == 'true'
       uses: ncipollo/release-action@v1
