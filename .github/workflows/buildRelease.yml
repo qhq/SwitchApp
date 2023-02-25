@@ -62,7 +62,7 @@ jobs:
         done
         cat README.md
         # 将压缩文件移动到/Output目录
-        if [ -e /Files/*.zip ]; then
+        if [ -e Files/*.zip ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "check='true'" >> $GITHUB_OUTPUT
         else
