@@ -64,6 +64,7 @@ jobs:
         # 将压缩文件移动到/Output目录
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
+          echo 文件已更新"
           echo "check='true'" >> $GITHUB_OUTPUT
         else
           echo "无任何文件需要更新"
