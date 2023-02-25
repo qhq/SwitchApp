@@ -65,10 +65,10 @@ jobs:
         if [ -n "$(find Files -name '*.zip')" ]; then
           mkdir -p Output && mv Files/*.zip Output
           echo "文件已更新"
-          echo "check='true'" >> $GITHUB_OUTPUT
+          echo "check='true'" >> $GITHUB_ENV
         else
           echo "无任何文件需要更新"
-          echo "check='false'" >> $GITHUB_OUTPUT
+          echo "check='false'" >> $GITHUB_ENV
         fi
         
     - name: 发布更新
