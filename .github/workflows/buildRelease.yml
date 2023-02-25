@@ -70,9 +70,11 @@ jobs:
           echo "无任何文件需要更新"
           echo "check='false'" >> $GITHUB_OUTPUT
         fi
+        
     - name: 测试
       run: |
-        each ${{ steps.zipFiles.outputs.check }}
+        echo ${{ steps.zipFiles.outputs.check }}
+        
     - name: 发布更新
       if: steps.zipFiles.outputs.check == 'true'
       uses: ncipollo/release-action@v1
