@@ -70,9 +70,9 @@ jobs:
           echo "无任何文件需要更新"
           echo "check='false'" >> $GITHUB_OUTPUT
         fi
-
+    
     - name: 发布更新
-      if: ${{ steps.zipFiles.outputs.check }} == 'true'
+      if: steps.zipFiles.outputs.check == 'true'
       uses: ncipollo/release-action@v1
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
@@ -83,7 +83,7 @@ jobs:
         artifacts: "Output/*.zip"
         
     - name: 更新 README.md
-      if: ${{ steps.zipFiles.outputs.check }} == 'true'
+      if: steps.zipFiles.outputs.check == 'true'
       run: |
         git config --global user.name "qhq[bot]"
         git config --global user.email "qhqcz@qq.com"
