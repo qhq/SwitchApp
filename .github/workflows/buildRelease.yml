@@ -69,7 +69,17 @@ jobs:
           echo "无任何文件需要更新"
           echo "check='false'" >> $GITHUB_OUTPUT
         fi
-
+        if [ -d "Files" ]
+        then
+            if [ -f "Files/*.zip" ]
+            then
+              mkdir -p Output && mv Files/*.zip Output
+              echo "check='true'" >> $GITHUB_OUTPUT
+            else
+              echo "无任何文件需要更新"
+              echo "check='false'" >> $GITHUB_OUTPUT
+            fi
+        fi
     - name: 发布更新
       if: steps.check.outputs.check == 'true'
       uses: ncipollo/release-action@v1
