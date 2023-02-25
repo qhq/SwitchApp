@@ -74,7 +74,17 @@ jobs:
     - name: 测试
       run: |
         echo ${{ steps.zipFiles.outputs.check }}
-      
+
+    - name: 测试
+      if: ${{ steps.zipFiles.outputs.check }} == true
+      run: |
+        echo ${{ steps.zipFiles.outputs.check }}
+
+    - name: 测试
+      if: steps.zipFiles.outputs.check == true
+      run: |
+        echo ${{ steps.zipFiles.outputs.check }}
+    
     - name: 发布更新
       if: ${{ steps.zipFiles.outputs.check }} == true
       uses: ncipollo/release-action@v1
