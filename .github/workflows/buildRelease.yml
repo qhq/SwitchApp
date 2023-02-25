@@ -81,7 +81,7 @@ jobs:
         echo "1"
         
     - name: 测试
-      if: steps.zipFiles.outputs.check == "true"
+      if: ${{ steps.zipFiles.outputs.check }} == true
       run: |
         echo "2"
       
