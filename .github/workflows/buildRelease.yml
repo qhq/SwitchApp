@@ -73,11 +73,9 @@ jobs:
         then
             if [ -f "Files/*.zip" ]
             then
-              mkdir -p Output && mv Files/*.zip Output
-              echo "check='true'" >> $GITHUB_OUTPUT
+                echo "Files子目录下包含zip文件"
             else
-              echo "无任何文件需要更新"
-              echo "check='false'" >> $GITHUB_OUTPUT
+                echo "Files子目录下不包含zip文件"
             fi
         fi
     - name: 发布更新
