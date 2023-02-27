@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       update:
-        description: '强制更新打包'
+        type: boolean
+        description: '是否强制更新打包'
         required: true
-        default: false
   push:
     branches:
       - master
