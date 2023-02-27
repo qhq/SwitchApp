@@ -3,6 +3,11 @@ name: BuildRelease
 # 指定此工作流的触发器
 on:
   workflow_dispatch:
+    inputs:
+      update:
+        description: '强制更新打包'
+        required: true
+        default: false
   push:
     branches:
       - master
@@ -34,6 +39,7 @@ jobs:
     - name: 整理文件
       id: zipFiles
       run: |
+        update=${{ github.event.inputs.update }}
         # 查找删除.delme文件（用来实现GitHub空目录）
         find Files -type f -iname .delme -delete
         # awk -F "|" '$2~"DBI"{print $2,$3}' README.md
@@ -47,7 +53,7 @@ jobs:
           v_old=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
           v_new=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
-          if version_gt $v_new $v_old; then
+          if [ version_gt $v_new $v_old ] || [ update==true ]; then
             echo "$fn 版本更新：$v_old ⬆ $v_new"
             perl -pi -e "s/$fn\|$v_old\|.*\|/$fn\|$v_new\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
