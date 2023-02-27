@@ -6,7 +6,7 @@ on:
     inputs:
       update:
         type: boolean
-        description: '是否强制更新打包'
+        description: '忽略版本，强制更新打包'
         required: true
   push:
     branches:
