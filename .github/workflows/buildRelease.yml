@@ -56,7 +56,7 @@ jobs:
           echo "$update == false"
           if $update == false; then
             echo "1"
-          if
+          fi
           if [ $update == false ] || version_gt $current_version $latest_version; then
             echo "$fn 版本更新：$v_old ⬆ $v_new"
             perl -pi -e "s/$fn\|$v_old\|.*\|/$fn\|$v_new\|${{ steps.date.outputs.date }}\|/g" README.md
