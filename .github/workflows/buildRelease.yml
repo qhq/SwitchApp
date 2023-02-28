@@ -48,25 +48,15 @@ jobs:
         do
         if [ -d "$file" ]
         then
+          # 大于
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
+          # 小于
           function version_lt() { test "$(echo "$@" | tr " " "\n" | sort -rV | head -n 1)" != "$1"; }
           # echo "$file 是目录"
           fn=${file##*/}
           current_version=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
           latest_version=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
-          echo "$fn 版本更新：$current_version ⬆ $latest_version"
-          echo $(version_gt $current_version $latest_version)
-          echo $(version_lt $current_version $latest_version)
-          if version_gt $current_version $latest_version; then
-            echo "version_gt"
-          fi
-          if version_lt $current_version $latest_version; then
-            echo "version_lt"
-          fi
-          if [ $(version_gt $current_version $latest_version) ]; then
-            echo "输出1"
-          fi
-          if [ $update == true ] || version_gt $current_version $latest_version; then
+          if [ $update == true ] || version_gt $latest_version $current_version; then
             echo "$fn 版本更新：$current_version ⬆ $latest_version"
             perl -pi -e "s/$fn\|$current_version\|.*\|/$fn\|$latest_version\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
