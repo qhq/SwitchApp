@@ -54,11 +54,10 @@ jobs:
           fn=${file##*/}
           current_version=`awk -F "|" '$2~/'"$fn"'/ {print $3}' README.md`
           latest_version=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
-          if version_lt $current_version $latest_version; then
-             echo "$fn 版本更新：$current_version ⬆ $latest_version"
+          if [ "$update" == "true" ] || version_gt $current_version $latest_version; then
+            echo "输出"
           fi
-          #if [ $update == true ] || version_gt $current_version $latest_version; then
-          if [[ $update == true || version_gt $current_version $latest_version ]]; then
+          if [ $update == true ] || version_gt $current_version $latest_version; then
             echo "$fn 版本更新：$current_version ⬆ $latest_version"
             perl -pi -e "s/$fn\|$current_version\|.*\|/$fn\|$latest_version\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
