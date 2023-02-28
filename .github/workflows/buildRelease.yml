@@ -57,6 +57,9 @@ jobs:
           echo "$fn 版本更新：$current_version ⬆ $latest_version"
           echo $(version_gt $current_version $latest_version)
           echo $(version_lt $current_version $latest_version)
+          if version_gt $current_version $latest_version; then
+            echo "version_gt"
+          fi
           if version_lt $current_version $latest_version; then
             echo "version_lt"
           fi
