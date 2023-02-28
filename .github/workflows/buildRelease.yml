@@ -54,7 +54,7 @@ jobs:
           v_new=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
           echo "$fn 版本信息：$v_old | $v_new"
           function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
-          if [ $update == true ] || version_gt $current_version $latest_version; then
+          if version_gt $current_version $latest_version || [ $update == true ]; then
             echo "$fn 版本更新：$v_old ⬆ $v_new"
             perl -pi -e "s/$fn\|$v_old\|.*\|/$fn\|$v_new\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
