@@ -56,14 +56,12 @@ jobs:
           latest_version=`ls $file -a | grep -i -E 'version_.*' | awk -F "_" '{print $2}'`
           echo "$fn 版本更新：$current_version ⬆ $latest_version"
           echo $(version_gt $current_version $latest_version)
+          echo $(version_lt $current_version $latest_version)
           if version_gt $current_version $latest_version; then
             echo "输出"
           fi
           if [ $(version_gt $current_version $latest_version) ]; then
             echo "输出1"
-          fi
-          if [ $update == true ] || version_gt $current_version $latest_version; then
-            echo "输出2"
           fi
           if [ $update == true ] || version_gt $current_version $latest_version; then
             echo "$fn 版本更新：$current_version ⬆ $latest_version"
