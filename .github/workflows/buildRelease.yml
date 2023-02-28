@@ -58,7 +58,7 @@ jobs:
           if version_gt $current_version $latest_version; then
             echo "输出"
           fi
-          if [ version_gt $current_version $latest_version ]; then
+          if [ $(version_gt $current_version $latest_version) ]; then
             echo "输出1"
           fi
           if [ $update == true ] || version_gt $current_version $latest_version; then
