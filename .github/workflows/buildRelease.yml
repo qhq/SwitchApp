@@ -58,7 +58,7 @@ jobs:
              echo "$fn 版本更新：$current_version ⬆ $latest_version"
           fi
           #if [ $update == true ] || version_gt $current_version $latest_version; then
-          if [[ $update == true || $(version_gt $current_version $latest_version) ]]; then
+          if [[ $update == true || version_gt $current_version $latest_version ]]; then
             echo "$fn 版本更新：$current_version ⬆ $latest_version"
             perl -pi -e "s/$fn\|$current_version\|.*\|/$fn\|$latest_version\|${{ steps.date.outputs.date }}\|/g" README.md
             cd $file
