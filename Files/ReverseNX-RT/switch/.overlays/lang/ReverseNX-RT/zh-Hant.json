@@ -7,15 +7,14 @@
     "GameRunningGuiTestCustomDrawerText": "遊戲正在運行。",
     "PlugNotRunningGuiTestCustomDrawerText": "ReverseNX-RT插件沒有運行！",
     "PlugRunningGuiTestCustomDrawerText": "ReverseNX-RT插件正在運行。",
-    "GameNotSupportGuiTestCustomDrawerText": "遊戲不支持更改模式！",
-    "WrongMagicNumberGuiTestCustomDrawerText": "錯誤的魔法數！",
+    "GameNotCheckAnyModeGuiTestCustomDrawerText": "遊戲沒有檢查任何模式！",
     "ChangeSystemControlGuiTestListItemText": "更改繫統控製",
     "ChangeModeGuiTestListItemText": "更改模式",
     "ActiveOrDeactivePlugGuiTestListItemText": "(解除)激活插件",
+    "PluginActivedGuiTestListItemText": "ReverseNX-RT插件已激活。",
+    "PluginDeactivedGuiTestListItemText": "ReverseNX-RT插件已停用。",
     "UpdateDockModeGuiTestListItemText": "模式：底座",
     "UpdateHandleModeGuiTestListItemText": "模式：掌機",
     "UpdateSystemControlGuiTestListItemText": "由繫統控製：是",
-    "UpdateNotSystemControlGuiTestListItemText": "由繫統控製：否",
-    "UpdatePluginActivedGuiTestListItemText": "ReverseNX-RT插件已激活。",
-    "UpdatePluginDeactivedGuiTestListItemText": "ReverseNX-RT插件已停用。"
+    "UpdateNotSystemControlGuiTestListItemText": "由繫統控製：否"
 }
