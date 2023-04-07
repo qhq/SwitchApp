@@ -7,6 +7,8 @@
     "ConfigFileValidAdvancedGuiCustomDrawerText": "找到有效的配置文件！",
     "NVNAdvancedGuiCategoryHeader": "NVN狀態",
     "SyncWaitAdvancedGuiToggleListItem": "同步等待",
+    "EGLAdvancedGuiCategoryHeader": "EGL狀態",
+    "VulkanAdvancedGuiCategoryHeader": "Vulkan狀態",
     "PatchWillBeAppliedNextGameBootAdvancedGuiCategoryHeader": "補丁將在下次遊戲啟動時應用",
     "ConvertConfigToPatchFileAdvancedGuiListItem": "將配置轉換為補丁文件",
     "PatchFileCreatedSuccessAdvancedGuiListItemText": "補丁文件創建成功。",

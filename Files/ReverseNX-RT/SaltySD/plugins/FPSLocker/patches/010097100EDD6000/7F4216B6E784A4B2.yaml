@@ -1,35 +1,32 @@
-# Triangle Strategy 1.0.3
-# BID: F7C20294EFF7E6FA
+# Little Nightmares 2 1.4
+# BID: 7F4216B6E784A4B2
 
 unsafeCheck: true
 
 15FPS:
-  # r.DynamicRes.FrameTimeBudget ((1000/FPS) * 0.945)
+  # r.DynamicRes.FrameTimeBudget (1000/FPS)
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [63, 63]
-  # t.MaxFPS
+    value: [66.6666, 66.6666]
+  # t.MaxFPS (game needs to be forced to run under 20 FPS, then it slows down)
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [15, 15]
-  -
-    type: block
-    what: timing
 20FPS:
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [47.25, 47.25]
+    value: [50, 50]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [20, 20]
   -
@@ -39,13 +36,13 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [37.8, 37.8]
+    value: [40, 40]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [25, 25]
   -
@@ -55,26 +52,26 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget (default value)
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [33.33, 33.33]
+    value: [33.3333, 33.3333]
   # t.MaxFPS (default value)
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [0, 0]
 35FPS:
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [27, 27]
+    value: [28.5714, 28.5714]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [35, 35]
   -
@@ -84,13 +81,13 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [23.625, 23.625]
+    value: [25, 25]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [40, 40]
   -
@@ -100,13 +97,13 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [21, 21]
+    value: [22.2222, 22.2222]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [45, 45]
   -
@@ -116,13 +113,13 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [18.9, 18.9]
+    value: [20, 20]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [50, 50]
   -
@@ -132,13 +129,13 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [17.18, 17.18]
+    value: [18.18, 18.18]
   # t.MaxFPS
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [55, 55]
   -
@@ -148,12 +145,12 @@ unsafeCheck: true
   # r.DynamicRes.FrameTimeBudget
   -
     type: write
-    address: [MAIN, 0x745D838, 0]
+    address: [MAIN, 0x74A0370, 0]
     value_type: float
-    value: [16.66, 16.66]
+    value: [16.6666, 16.6666]
   # t.MaxFPS (default value)
   -
     type: write
-    address: [MAIN, 0x748B408, 0]
+    address: [MAIN, 0x74CC710, 0]
     value_type: float
     value: [0, 0]

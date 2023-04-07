@@ -7,6 +7,8 @@
     "ConfigFileValidAdvancedGuiCustomDrawerText": "Found valid config file!",
     "NVNAdvancedGuiCategoryHeader": "NVN",
     "SyncWaitAdvancedGuiToggleListItem": "Sync Wait",
+    "EGLAdvancedGuiCategoryHeader": "EGL",
+    "VulkanAdvancedGuiCategoryHeader": "Vulkan",
     "PatchWillBeAppliedNextGameBootAdvancedGuiCategoryHeader": "Patch will be applied on next game boot",
     "ConvertConfigToPatchFileAdvancedGuiListItem": "Convert config to patch file",
     "PatchFileCreatedSuccessAdvancedGuiListItemText": "Patch file created successfully.",
