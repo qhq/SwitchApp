@@ -21,8 +21,8 @@
     "RemoveFavorite": "刪除書籤",
     "ResetActiveVirtualAmiibo": "重置啟用的amiibo",
     "EmulationStatus": "模擬狀態",
-    "EmulationStatusOn": "開啟",
-    "EmulationStatusOff": "關閉",
+    "On": "開啟",
+    "Off": "關閉",
     "CurrentGameIntercepted": "目前遊戲為",
     "AvailableVirtualAmiibos": "可用的amiibo",
     "Intercepted": "已生效",
@@ -33,5 +33,8 @@
     "ViewVirtualAmiibos": "預覽amiibo",
     "ViewFavorites": "書籤",
     "SelectedArea": "所選程序數據區域",
-    "NoVirtualAmiiboAreas": "所選程序數據區域"
+    "NoVirtualAmiiboAreas": "所選程序數據區域",
+    "EnableRandomUuid": "開啟隨機UUID",
+    "DisableRandomUuid": "關閉隨機UUID",
+    "RandomUuid": "隨機UUID"
 }
