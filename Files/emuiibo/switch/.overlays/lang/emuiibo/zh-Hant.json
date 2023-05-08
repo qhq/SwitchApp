@@ -1,5 +1,5 @@
 {
-    "PluginName": "amiibo模擬器",
+    "PluginName": "amiibo模擬",
     "UpngInvalidFile": "檔案損壞",
     "UpngUnsupportedRgbPng": "請使用RGBA PNG.",
     "UpngUpscaleUnsupported": "尚未支援縮放圖片.",

@@ -1,5 +1,5 @@
 {
-    "PluginName": "底座模式插件",
+    "PluginName": "底座模式",
     "SaltySDNotRunningGuiTestCustomDrawerText": "SaltyNX沒有運行！",
     "NoReverseNXPlugGuiTestCustomDrawerText": "沒有檢測到ReverseNX-RT插件！",
     "CheckGameClosedGuiTestCustomDrawerText": "遊戲已關閉！Overlay插件禁用！\n退出Overlay插件，然後運行遊戲先！",
